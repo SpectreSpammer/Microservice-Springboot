@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,13 +27,13 @@ public class ProductController {
         return new ResponseEntity<>(productList,HttpStatus.ACCEPTED);
     }
 
+
     @GetMapping("/product/{prodId}")
     public ResponseEntity<?> getProductById(@PathVariable Integer prodId){
         ProductDTO productList =  productService.getProductById(prodId);
         return new ResponseEntity<>(productList,HttpStatus.OK);
 
     }
-
     @PostMapping("/product")
     public ResponseEntity<ProductDTO> createdCustomer(@Valid @RequestBody ProductDTO productDTO, BindingResult bindingResult ){
 
@@ -45,7 +46,6 @@ public class ProductController {
 //            return new ResponseEntity<>(errorMap, HttpStatus.BAD_REQUEST);
         */
     }
-
     @DeleteMapping("/product/{prodId}")
     public void deleteById(@PathVariable Integer prodId){
         productService.deleteById(prodId);
@@ -57,6 +57,7 @@ public class ProductController {
 
         return new ResponseEntity<>(prod,HttpStatus.CREATED);
     }
+
 
 
 }

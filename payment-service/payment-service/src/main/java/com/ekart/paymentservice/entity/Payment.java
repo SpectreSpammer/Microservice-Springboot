@@ -22,15 +22,16 @@ public class Payment {
     private Integer cvv;
     private String expiryDate;
     private String nameOnCard;
-    private String debit;
-    private String credit;
+    private boolean debit = false;
+    private boolean credit = false;
 
     public Payment(PaymentDTO paymentDTO){
         this.paymentId = paymentDTO.getPaymentId();
         this.cardNo = paymentDTO.getCardNo();
+        this.cvv = paymentDTO.getCvv();
         this.expiryDate = paymentDTO.getExpiryDate();
         this.nameOnCard = paymentDTO.getNameOnCard();
-        this.debit = paymentDTO.getDebit();
-        this.credit = paymentDTO.getCredit();
+        this.debit = paymentDTO.isDebit();
+        this.credit = paymentDTO.isCredit();
     }
 }

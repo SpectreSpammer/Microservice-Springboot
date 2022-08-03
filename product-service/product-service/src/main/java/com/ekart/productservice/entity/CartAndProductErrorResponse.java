@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductErrorResponse {
+public class CartAndProductErrorResponse {
     private Integer status;
     private String message;
     private Long timeStamp;

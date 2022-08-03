@@ -34,5 +34,10 @@ public class Product {
         this.category = productDTO.getCategory();
         this.brand = productDTO.getBrand();
         this.price = productDTO.getPrice();
+
+
+
     }
+
+
 }

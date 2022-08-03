@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,18 +19,32 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cartId;
-    private String productName;
-    private Double price;
+
+    private Integer price;
     private Integer quantity;
-
     private String category;
-
+    /*
+    https://www.youtube.com/watch?v=ZkCokUMqy9c
+    OneToMany mapping
+     */
+    @OneToMany(
+            cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.DETACH,
+            CascadeType.REFRESH
+    })
+    @JoinColumn(name = "prod_id")
+    private List<Product> productList;
 
     public Cart(CartDTO cartDTO){
-        this.cartId = cartDTO.getCartId();
-        this.productName = cartDTO.getProductName();
+
         this.price = cartDTO.getPrice();
         this.quantity = cartDTO.getQuantity();
         this.category = cartDTO.getCategory();
+        this.productList = cartDTO.getProductList();
+
+
     }
+
 }

@@ -1,7 +1,7 @@
 package com.ekart.productservice.exception;
 
-public class ProductException extends RuntimeException {
-    public ProductException(String message) {
+public class CartAndProductException extends RuntimeException {
+    public CartAndProductException(String message) {
         super(message);
     }
 }

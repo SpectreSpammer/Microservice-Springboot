@@ -1,6 +1,7 @@
 package com.ekart.productservice.dto;
 
 
+import com.ekart.productservice.entity.Cart;
 import com.ekart.productservice.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,8 @@ public class ProductDTO {
     private String brand;
     private Double price;
 
+
+
     public ProductDTO(Product product){
         this.productId = product.getProductId();
         this.productName = product.getProductName();
@@ -27,5 +30,10 @@ public class ProductDTO {
         this.category = product.getCategory();
         this.brand = product.getBrand();
         this.price = product.getPrice();
+
+
+
+
+
     }
 }
